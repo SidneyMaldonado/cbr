@@ -5,6 +5,7 @@ public class Compilador {
 
 	public List<String> alfabeto;
 	public List<String> exemplo;
+	public List<String> expressoes;
 	
 	public Compilador() {
 		// TODO Auto-generated constructor stub
@@ -16,8 +17,9 @@ public class Compilador {
 		System.out.println("Iniciando o compilador...");
 		
 		LerArquivo leitor = new LerArquivo();
-		alfabeto = leitor.ler("c:\\cbr\\alfabeto.txt");
-		exemplo = leitor.ler("c:\\cbr\\exemplo.txt");
+		alfabeto = leitor.ler("C:\\Users\\Aluno\\eclipse-workspace\\CBR\\alfabeto.txt");
+		exemplo = leitor.ler("C:\\Users\\Aluno\\eclipse-workspace\\CBR\\exemplo.txt");
+		expressoes = leitor.ler("C:\\Users\\Aluno\\eclipse-workspace\\CBR\\expressoes.txt");
 		for( int i =0; i < alfabeto.size();i++) {
 			System.out.println(alfabeto.get(i));
 		}
@@ -26,6 +28,12 @@ public class Compilador {
 		for( int i =0; i < exemplo.size();i++) {
 			linha = exemplo.get(i);
 			lexico.analisar(linha, alfabeto);
+		}
+		AnalisadorSintatico sintatico = new AnalisadorSintatico();
+		for( int i =0; i < exemplo.size();i++) 
+		{
+			linha = exemplo.get(i);
+			sintatico.analisar(linha, expressoes);
 		}
 
 	}

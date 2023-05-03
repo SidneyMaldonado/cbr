@@ -10,9 +10,13 @@ Declaracoes de Tipagem
 <varnum> := <var> | <num>
 inteiro <var>;
 int <var>;
-scanf("%<type>", &<var> );
+ler <var>;
 <var> = <varnum> <op.arit> <varnum>;
-
+imprimir <var>;
+para <var> de <num> ate <num> entao
+fimpara
+se <var> <op.rel> <num> entao
+fimse
 ---------------
 inteiro x;
 int y;
