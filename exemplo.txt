@@ -1,6 +1,7 @@
 inteiro x;
 int y;
 inteiro i;
+inteiro a;
 ler x;
 y = x * 2;
 para i de 1 ate 10 faca
@@ -9,6 +10,9 @@ para i de 1 ate 10 faca
    fimse
 fimpara
 se a > 5 entao
+   imprimir a;
+fimse
+Se a = 3 ou a !4 entao
    imprimir a;
 fimse
 retorne 0;

@@ -1,8 +1,13 @@
-leia
-escreva
-se
+ler
+imprimir
 para
+fimpara
+de
+ate
+faca
+se
 senao
+fimse
 =
 inteiro
 texto
@@ -11,6 +16,7 @@ logico
 e
 ou
 nao
+retorne
 >
 <
 >=
