@@ -12,7 +12,7 @@ fimpara
 se a > 5 entao
    imprimir a;
 fimse
-Se a = 3 ou a !4 entao
+se a = 3 ou a !4 entao
    imprimir a;
 fimse
 retorne 0;
