@@ -14,9 +14,14 @@ public class AnalisadorSemantico {
 		if (token[0].equals("inteiro") ||
 			token[0].equals("int")	) {
 			// adicionar na tabela de simbolos
+			if (estaNaTabelaSimbolos(token[1].toString())) {
+				System.out.println("Variavel já declarada:"+token[1]);
+				return;
+			}
 			tabelaSimbolos.add(token[1]);
 			return;
 		}
+		
 		// percorre todas as palavras da linha
 		for(int i=0;i<token.length;i++) {
 			// verificar se é uma variável
