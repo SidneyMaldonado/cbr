@@ -6,7 +6,7 @@ public class AnalisadorLexico {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void analisar(String linha, List<String> alfabeto) {
+	public boolean analisar(String linha, List<String> alfabeto) {
 		String caracteres = alfabeto.get(0); 
 
 		for(int i =0; i < linha.length();i++) {
@@ -20,11 +20,11 @@ public class AnalisadorLexico {
 			}
 			if (erro) {
 				System.out.println("caracter invalido:"+letra+":");
-				return;
+				return false;
 			}
 			
 		}
-		System.out.println("Analise lexica bem sucedida!");
+		return true;
 	}
 
 }

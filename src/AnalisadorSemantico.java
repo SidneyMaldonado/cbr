@@ -8,31 +8,34 @@ public class AnalisadorSemantico {
 		tabelaSimbolos = new ArrayList();
 	}
 	
-	public void Analisar(String linha, List<String> dicionario) {
+	public boolean Analisar(String linha, List<String> dicionario) {
 		linha = linha.replace(";","");
 		String[] token = linha.split(" ");
 		if (token[0].equals("inteiro") ||
 			token[0].equals("int")	) {
 			// adicionar na tabela de simbolos
 			if (estaNaTabelaSimbolos(token[1].toString())) {
-				System.out.println("Variavel já declarada:"+token[1]);
-				return;
+				System.out.println("Variavel jï¿½ declarada:"+token[1]);
+				return false;
 			}
 			tabelaSimbolos.add(token[1]);
-			return;
+			return true;
 		}
 		
 		// percorre todas as palavras da linha
 		for(int i=0;i<token.length;i++) {
-			// verificar se é uma variável
+			// verificar se ï¿½ uma variï¿½vel
 			if (ehVariavel(token[i].toString(), dicionario)) {
 				if (estaNaTabelaSimbolos(token[i].toString())) {
-					return;
+					return true;
 				} else {
 					System.out.println("Variavel nao declarada:"+token[i]);
+					return false;
 				}
 			}
 		}
+
+		return true;
 	}
 	
 	public Boolean ehVariavel(String palavra, List<String> dicionario) {
