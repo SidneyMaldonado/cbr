@@ -27,26 +27,55 @@ public class Compilador {
 		}
 		System.out.println("--------------");
 		AnalisadorLexico lexico = new AnalisadorLexico();
+
+		boolean valido = true;
+
 		for( int i =0; i < exemplo.size();i++) {
 			linha = exemplo.get(i);
-			lexico.analisar(linha, alfabeto);
+			if(!lexico.analisar(linha, alfabeto)){
+				valido=false;
+				break;
+			}
 		}
+
+		if(valido){
+			System.out.println("Análise léxica bem sucedida!");
+		}else{
+			return;
+		}
+
 		AnalisadorSintatico sintatico = new AnalisadorSintatico();
 		for( int i =0; i < exemplo.size();i++) 
 		{
 			linha = exemplo.get(i);
-			sintatico.analisar(linha, expressoes);
+			if(!sintatico.analisar(linha, expressoes)){
+				valido=false;
+				break;
+			}
+		}
+
+		if(valido){
+			System.out.println("Análise sintática bem sucedida!");
+		}else{
+			return;
 		}
 		
-		System.out.println("Analisando semanticamente");
 		AnalisadorSemantico semantico = new AnalisadorSemantico();
 		for( int i =0; i < exemplo.size();i++) 
 		{
 			linha = exemplo.get(i);
-			semantico.Analisar(linha, dicionario);
+			if(!semantico.Analisar(linha, dicionario)){
+				valido=false;
+				break;
+			}
 		}
-		System.out.println("Fim da analise semantica");
 
+		if(valido){
+			System.out.println("Análise semântica bem sucedida!");
+		}else{
+			return;
+		}
+		
 	}
 
 
