@@ -7,11 +7,12 @@ public class AnalisadorSintatico {
 	}
 	
 	public boolean analisar(String linha, List<String> expressoes) {
-		for(int i =0;i<expressoes.size();i++) {
-			if( linha.trim().matches(expressoes.get(i))) {
+		
+		for (String expressao : expressoes) {
+			if( linha.trim().matches(expressao)) {
 				return true;
 			}
-			//System.out.println(expressoes.get(i));
+			//System.out.println(expressao);
 		}
 		
 		System.out.println("Erro na linha:"+linha);
