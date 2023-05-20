@@ -11,13 +11,10 @@ public class AnalisadorLexico {
 
 		for(int i =0; i < linha.length();i++) {
 			char letra = linha.charAt(i);
-			Boolean erro = true;
-			for(int j =0; j< caracteres.length();j++) {
-				//System.out.println("Comparando:"+letra+" com "+ caracteres.charAt(i));
-				if (letra == caracteres.charAt(j)) {
-					erro = false;
-				}
-			}
+			Boolean erro;
+
+			erro = !caracteres.contains(String.valueOf(letra));
+
 			if (erro) {
 				System.out.println("caracter invalido:"+letra+":");
 				return false;
