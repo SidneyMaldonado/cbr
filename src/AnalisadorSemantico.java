@@ -52,11 +52,7 @@ public class AnalisadorSemantico {
 	}
 	public Boolean estaNaTabelaSimbolos(String palavra) {
 		
-		for(int i=0;i<tabelaSimbolos.size();i++) {
-			if (tabelaSimbolos.get(i).toString().equals(palavra)){
-				return true;
-			}
-		}
-		return false;
+		return tabelaSimbolos.contains(palavra);
+		
 	}
 }
