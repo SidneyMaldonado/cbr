@@ -75,7 +75,6 @@ public class Compilador {
 		}else{
 			return;
 		}
-		System.out.println("Fim da analise semantica");
 
 		String byteCode = "";
 		GeradorByteCode gerador = new GeradorByteCode();
