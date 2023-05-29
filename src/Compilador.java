@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -78,13 +79,20 @@ public class Compilador {
 
 		String byteCode = "";
 		GeradorByteCode gerador = new GeradorByteCode();
-		byteCode += "Scanner teclado = new Scanner(System.in);\n";
+		byteCode += "java.util.Scanner teclado = new java.util.Scanner(System.in);\n";
 
 		for( int i =0; i < exemplo.size();i++) 
 		{
 			linha = exemplo.get(i);
 			byteCode += gerador.gerar(linha)+"\n";
-			System.out.print(byteCode);
 		}
+
+		byteCode = String.format("public class exemplo {\npublic static void main(String[] args){\n%s\n}\n}\n",byteCode);
+
+		System.out.print(byteCode);
+
+		FileWriter fw = new FileWriter("exemplo.java");
+		fw.write(byteCode);
+		fw.close();
 	}
 }

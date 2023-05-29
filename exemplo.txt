@@ -1,7 +1,6 @@
 inteiro x;
 int y;
 inteiro i;
-inteiro a;
 ler x;
 y = x * 2;
 para i de 1 ate 10 faca
@@ -9,6 +8,6 @@ para i de 1 ate 10 faca
      imprimir "passou de 10";
    fimse
 fimpara
-se a > 5 ou a = 3 entao
-   imprimir a;
+se x > 5 ou x = 3 entao
+   imprimir x;
 fimse
