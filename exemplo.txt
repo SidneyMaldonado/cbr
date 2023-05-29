@@ -1,13 +1,23 @@
 inteiro x;
-int y;
 inteiro i;
+int resultado;
+
+imprimir "informe um numero natural: ";
+
 ler x;
-y = x * 2;
-para i de 1 ate 10 faca
-   se y > 10 entao
-     imprimir "passou de 10";
-   fimse
-fimpara
-se x > 5 ou x = 3 entao
-   imprimir x;
+
+se x < 0 entao
+    imprimir "numero invalido";
+senao
+    resultado = 1;
+    
+    para i de 1 ate x faca
+
+        resultado = resultado * i;
+
+    fimpara
+
+    imprimir "fatorial:";
+    imprimir resultado;
+
 fimse

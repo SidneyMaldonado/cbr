@@ -14,7 +14,7 @@ public class GeradorByteCode {
 
 		final String VAR = "[a-z][a-z0-9]*"; // Variaveis
 		final String NUM = "[0-9]+(?:\\.[0-9]+)?"; // Números
-		final String STRING = "\"(?:\\\\|\\\"|\\\'|[^\'\"\\\\])*\""; // Textos
+		final String STRING = "\"(?:\\\\\\\\|\\\\\"|\\\\\'|[^\'\"\\\\])*\""; // Textos
 		final String VAR_OR_NUM = String.format("(?:%s|%s)", VAR, NUM); // Variaveis ou números
 		final String VAR_OR_STRING = String.format("(?:%s|%s)", VAR, STRING); // Variaveis ou textos
 
@@ -136,11 +136,23 @@ public class GeradorByteCode {
 			return String.format("for(%s = %s; %s <= %s; %s++){", var, de, var, ate, var);
 		}
 
-		m = Pattern.compile("^\\s*fimse|fimpara$").matcher(linha);
+		m = Pattern.compile("^\\s*(fimse|fimpara)\\s*$").matcher(linha);
 		if (m.matches()) {
 
 			return "}";
 
+		}
+
+		m = Pattern.compile("^\\s*(senao)\\s*$").matcher(linha);
+		if (m.matches()) {
+
+			return "} else {";
+
+		}
+
+		m = Pattern.compile("^\\s*$").matcher(linha);
+		if (m.matches()) {
+			return "";
 		}
 
 		return String.format("// %s", linha);

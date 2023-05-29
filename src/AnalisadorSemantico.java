@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AnalisadorSemantico {
 
@@ -10,7 +11,11 @@ public class AnalisadorSemantico {
 	
 	public boolean Analisar(String linha, List<String> dicionario) {
 		linha = linha.replace(";","");
+		linha = Pattern.compile("\"(?:\\\\\\\\|\\\\\"|\\\\\'|[^\'\"\\\\])*\"").matcher(linha).replaceAll("\"\"");
 		String[] token = linha.split(" ");
+
+		if(token.length==0)return true;
+
 		if (token[0].equals("inteiro") ||
 			token[0].equals("int")	) {
 			// adicionar na tabela de simbolos
